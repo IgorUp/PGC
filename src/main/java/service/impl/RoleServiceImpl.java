@@ -25,4 +25,16 @@ public class RoleServiceImpl implements RoleService {
     public String create(Role role) {
         return roleDao.create(role);
     }
+
+    @Transactional
+    @Override
+    public void delete(Role role) {
+         roleDao.delete(role);
+    }
+
+    @Transactional
+    @Override
+    public void update(Role role) {
+         roleDao.update(role);
+    }
 }

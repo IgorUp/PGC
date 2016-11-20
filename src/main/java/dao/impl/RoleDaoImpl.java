@@ -1,18 +1,21 @@
 package dao.impl;
 
+
 import dao.RoleDao;
 import model.Role;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
  * Created by igor on 20.11.16.
  */
 @Repository
-public class RoleDaoImpl implements RoleDao {
+public class RoleDaoImpl extends GenericDaoImpl<Role, String> implements RoleDao {
 
-    @Autowired
+    public RoleDaoImpl() {
+        super(Role.class);
+    }
+
+/*    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -23,5 +26,5 @@ public class RoleDaoImpl implements RoleDao {
     @Override
     public String create(Role role) {
         return (String) sessionFactory.getCurrentSession().save(role);
-    }
+    }*/
 }

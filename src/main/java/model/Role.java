@@ -4,27 +4,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 /**
  * Created by igor on 20.11.16.
  */
 @Entity
 @Table(name = "roles")
-public class Role implements Serializable {
+public class Role extends AbstractPersistable<String> {
 
     @Id
-    private String id_role;
+    @Column(name="id_role")
+    private String id;
     @Column(name = "name")
     private String name;
 
-    public String getId_role() {
-        return id_role;
-    }
-
-    public void setId_role(String id_role) {
-        this.id_role = id_role;
-    }
 
     public String getName() {
         return name;
@@ -32,5 +25,15 @@ public class Role implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
     }
 }

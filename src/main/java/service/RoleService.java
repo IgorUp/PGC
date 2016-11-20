@@ -7,5 +7,7 @@ import model.Role;
  */
 public interface RoleService {
     Role get(String id);
-    String create (Role role);
+    String create(Role role);
+    void delete(Role role);
+    void update(Role role);
 }
