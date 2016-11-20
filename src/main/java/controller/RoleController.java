@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import service.RoleService;
 
+import java.util.List;
+
 /**
  * Created by igor on 20.11.16.
  */
@@ -45,6 +47,13 @@ public class RoleController {
     private ResponseEntity roleDel(@RequestBody Role role) {
         roleService.delete(role);
         return ResponseEntity.ok(Response.success());
+    }
+
+    @RequestMapping(value = "/api/roles", method = RequestMethod.GET)
+    @ResponseBody
+    private ResponseEntity roleList() {
+        List<Role> list = roleService.list();
+        return ResponseEntity.ok(Response.success(list));
     }
 
 }

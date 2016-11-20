@@ -1,10 +1,12 @@
 package dao.impl;
 
 import dao.GenericDao;
+import model.Role;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Evgeny.Zemchenok@sibel.by on 11.04.2016.
@@ -47,5 +49,9 @@ public class GenericDaoImpl<T, ID extends Serializable> implements GenericDao<T,
 
     public T get(ID id) {
         return (T) sessionFactory.getCurrentSession().get(persistentClass, id);
+    }
+
+    public List<T> findAll() {
+        return sessionFactory.openSession().createCriteria(persistentClass).list();
     }
 }

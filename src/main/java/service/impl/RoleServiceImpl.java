@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.RoleService;
 
+import java.util.List;
+
 /**
  * Created by igor on 20.11.16.
  */
@@ -36,5 +38,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void update(Role role) {
          roleDao.update(role);
+    }
+
+    @Override
+    public List<Role> list() {
+        return roleDao.findAll();
     }
 }
