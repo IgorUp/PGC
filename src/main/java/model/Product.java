@@ -20,7 +20,7 @@ public class Product extends AbstractPersistable<String> {
     private String id;
     @Column(name = "name")
     private String name;
-    @Column(name = "productscol")
+    @Column(name = "productcol")
     private Long productCol;
     @Column(name = "date")
     //@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
