@@ -40,6 +40,7 @@ public class RoleServiceImpl implements RoleService {
          roleDao.update(role);
     }
 
+    @Transactional
     @Override
     public List<Role> list() {
         return roleDao.findAll();
