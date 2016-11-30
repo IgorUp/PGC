@@ -7,7 +7,7 @@ angular.module('myApp').factory('RoleService', ['$http', '$q', function($http, $
     var factory = {
         fetchAllUsers: fetchAllUsers,
         createUser: createUser,
-        /*updateUser:updateUser,*/
+        updateUser:updateUser,
         deleteUser:deleteUser
     };
 
@@ -44,20 +44,20 @@ angular.module('myApp').factory('RoleService', ['$http', '$q', function($http, $
     }
 
 
-/*    function updateUser(user, id) {
+    function updateUser(role, id) {
         var deferred = $q.defer();
-        $http.put(REST_SERVICE_URI+id, user)
+        $http.put(REST_SERVICE_URI + "roles/" + id, role)
             .then(
             function (response) {
                 deferred.resolve(response.data);
-            },
+            }/*,
             function(errResponse){
                 console.error('Error while updating User');
                 deferred.reject(errResponse);
-            }
+            }*/
         );
         return deferred.promise;
-    }*/
+    }
 
     function deleteUser(role) {
         var deferred = $q.defer();

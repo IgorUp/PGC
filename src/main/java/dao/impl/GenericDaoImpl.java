@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Evgeny.Zemchenok@sibel.by on 11.04.2016.
+ * Created by igor on 11.04.2016.
  */
 public class GenericDaoImpl<T, ID extends Serializable> implements GenericDao<T, ID> {
 

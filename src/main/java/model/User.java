@@ -3,6 +3,7 @@ package model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by igor on 20.11.16.
@@ -33,6 +34,9 @@ public class User extends AbstractPersistable<Long> {
     private Role role;
     @Column(name = "id_role", updatable = false, insertable = false)
     private String roleId;
+    //@OneToMany(mappedBy = "")
+    @OneToMany(mappedBy = "user")/*, fetch = FetchType.EAGER, cascade = CascadeType.ALL)*/
+    private List<Product> products;
 
     @Override
     public Long getId() {
@@ -106,5 +110,13 @@ public class User extends AbstractPersistable<Long> {
 
     public void setRoleId(String roleId) {
         this.roleId = roleId;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

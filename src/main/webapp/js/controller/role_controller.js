@@ -6,7 +6,7 @@ angular.module('myApp').controller('RoleController', ['$scope', 'RoleService', f
     self.roles = [];
 
     self.submit = submit;
-    /*self.edit = edit;*/
+    self.edit = edit;
     self.remove = remove;
     self.reset = reset;
 
@@ -33,15 +33,15 @@ angular.module('myApp').controller('RoleController', ['$scope', 'RoleService', f
         );
     }
 
-/*    function updateUser(user, id){
-        UserService.updateUser(user, id)
+    function updateUser(role, id){
+        RoleService.updateUser(role, id)
             .then(
-            fetchAllUsers,
+            fetchAllUsers/*,
             function(errResponse){
                 console.error('Error while updating User');
-            }
+            }*/
         );
-    }*/
+    }
 
     function deleteUser(role){
         RoleService.deleteUser(role)
@@ -70,15 +70,16 @@ angular.module('myApp').controller('RoleController', ['$scope', 'RoleService', f
         reset();
     }
 
-/*    function edit(id){
-        console.log('id to be edited', id);
-        for(var i = 0; i < self.users.length; i++){
-            if(self.users[i].id === id) {
-                self.user = angular.copy(self.users[i]);
+    function edit(id, role) {
+        for(var i = 0; i < self.roles.length; i++) {
+            if (self.roles[i].id === id) {
+                console.log('id to be edited', id);
+                updateUser(role, id);
                 break;
             }
         }
-    }*/
+        reset();
+    }
 
     function remove(role){
         console.log('id to be deleted', role);
@@ -87,6 +88,7 @@ angular.module('myApp').controller('RoleController', ['$scope', 'RoleService', f
         }*/
         self.role.id = role.id;
         self.role.name = role.name;
+        self.role.new = false;
         deleteUser(self.role);
     }
 

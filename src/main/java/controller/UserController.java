@@ -1,13 +1,16 @@
 package controller;
 
 import controller.dto.Response;
+import controller.dto.UserShortDto;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,6 +56,21 @@ public class UserController {
     private ResponseEntity<Response<List<User>>> roleList() {
         List<User> list = userService.list();
         return ResponseEntity.ok(Response.success(list));
+    }
+
+    @RequestMapping(value = "/api/usersinfo", method = RequestMethod.GET)
+    @ResponseBody
+    private ResponseEntity<Response<List<UserShortDto>>> roleDtoList() {
+        List<User> users = userService.list();
+        if (users != null) {
+            List<UserShortDto> list = new ArrayList<UserShortDto>(users.size());
+            for (User user : users) {
+                list.add(new UserShortDto(user));
+            }
+
+            return ResponseEntity.ok(Response.success(list));
+        }
+        return new ResponseEntity(Response.error("Nothing found"), HttpStatus.NOT_FOUND);
     }
 
 }

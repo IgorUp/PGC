@@ -97,7 +97,7 @@
                     <td><span>{{ u.id }}</span></td>
                     <td><span>{{ u.name }}</span></td>
                     <td>
-                        <%--<button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>--%>  <button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Remove</button>
+                        <button type="button" ng-click="ctrl.edit(u.id, u)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Remove</button>
                     </td>
                 </tr>
                 </tbody>
