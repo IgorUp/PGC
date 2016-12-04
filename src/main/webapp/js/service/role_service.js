@@ -44,7 +44,7 @@ angular.module('myApp').factory('RoleService', ['$http', '$q', function($http, $
     }
 
 
-    function updateUser(role, id) {
+    function updateUser(id, role) {
         var deferred = $q.defer();
         $http.put(REST_SERVICE_URI + "roles/" + id, role)
             .then(

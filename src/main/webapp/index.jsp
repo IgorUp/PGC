@@ -38,10 +38,10 @@
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-lable" for="file">ID</label>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.role.id" name="id" class="username form-control input-sm" placeholder="Enter your ID" required ng-minlength="3"/>
+                            <input type="text" ng-model="ctrl.role.id" name="id" class="username form-control input-sm" placeholder="Enter your ID" <%--required ng-minlength="3"--%>/>
                             <div class="has-error" ng-show="myForm.$dirty">
                                 <span ng-show="myForm.id.$error.required">This is a required field</span>
-                                <span ng-show="myForm.id.$error.minlength">Minimum length required is 3</span>
+                                <%--<span ng-show="myForm.id.$error.minlength">Minimum length required is 3</span>--%>
                                 <span ng-show="myForm.id.$invalid">This field is invalid </span>
                             </div>
                         </div>
@@ -74,6 +74,7 @@
                 <div class="row">
                     <div class="form-actions floatRight">
                         <input type="submit"  value="Add" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                        <button type="button" ng-click="ctrl.updateSub()" value="Update" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">Update</button>
                         <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
                     </div>
                 </div>
@@ -97,7 +98,7 @@
                     <td><span>{{ u.id }}</span></td>
                     <td><span>{{ u.name }}</span></td>
                     <td>
-                        <button type="button" ng-click="ctrl.edit(u.id, u)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Remove</button>
+                        <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Remove</button>
                     </td>
                 </tr>
                 </tbody>

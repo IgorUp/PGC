@@ -9,6 +9,7 @@ angular.module('myApp').controller('RoleController', ['$scope', 'RoleService', f
     self.edit = edit;
     self.remove = remove;
     self.reset = reset;
+    self.updateSub = updateSub;
 
 
     fetchAllUsers();
@@ -33,8 +34,8 @@ angular.module('myApp').controller('RoleController', ['$scope', 'RoleService', f
         );
     }
 
-    function updateUser(role, id){
-        RoleService.updateUser(role, id)
+    function updateUser(id, role){
+        RoleService.updateUser(id, role)
             .then(
             fetchAllUsers/*,
             function(errResponse){
@@ -70,15 +71,31 @@ angular.module('myApp').controller('RoleController', ['$scope', 'RoleService', f
         reset();
     }
 
-    function edit(id, role) {
-        for(var i = 0; i < self.roles.length; i++) {
-            if (self.roles[i].id === id) {
-                console.log('id to be edited', id);
-                updateUser(role, id);
+    function updateSub() {
+        console.log('Saving New User', self.role);
+        updateUser(self.role.id, self.role);
+        reset();
+    }
+
+        /*    function edit(id, role) {
+                for(var i = 0; i < self.roles.length; i++) {
+                    if (self.roles[i].id === id) {
+                        console.log('id to be edited', id);
+                        updateUser(role, id);
+                        break;
+                    }
+                }
+                reset();
+            }*/
+
+    function edit(id){
+        console.log('id to be edited', id);
+        for(var i = 0; i < self.roles.length; i++){
+            if(self.roles[i].id === id) {
+                self.role = angular.copy(self.roles[i]);
                 break;
             }
         }
-        reset();
     }
 
     function remove(role){
