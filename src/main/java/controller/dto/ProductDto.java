@@ -1,23 +1,21 @@
 package controller.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import model.Product;
-import model.User;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by igor on 24.11.16.
  */
 public class ProductDto {
-
-    private String id;
+    private Long id;
     private String name;
     private Long productCol;
     private Date date;
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private UserDto userDto;
-    private Long idUser;
+    private List<StockDto> stockDtos;
 
     public ProductDto() {
     }
@@ -27,15 +25,15 @@ public class ProductDto {
         this.name = product.getName();
         this.productCol = product.getProductCol();
         this.date = product.getDate();
-        this.userDto = new UserDto(product.getUser());
-        this.idUser = product.getIdUser();
+        this.stockDtos = new ArrayList<>(product.getStocks().size());
+        this.stockDtos.addAll(product.getStocks().stream().map(StockDto::new).collect(Collectors.toList()));
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,19 +61,11 @@ public class ProductDto {
         this.date = date;
     }
 
-    public UserDto getUserDto() {
-        return userDto;
+    public List<StockDto> getStockDtos() {
+        return stockDtos;
     }
 
-    public void setUserDto(UserDto userDto) {
-        this.userDto = userDto;
-    }
-
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public void setStockDtos(List<StockDto> stockDtos) {
+        this.stockDtos = stockDtos;
     }
 }

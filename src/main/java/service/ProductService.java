@@ -10,8 +10,8 @@ import java.util.List;
  */
 public interface ProductService {
 
-    Product get(String id);
-    String create(Product product);
+    Product get(Long id);
+    Long create(Product product);
     void delete(Product product);
     void update(Product product);
     List<Product> list();

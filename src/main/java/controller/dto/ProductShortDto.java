@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by igor on 29.11.16.
  */
 public class ProductShortDto {
-    private String id;
+    private Long id;
     private String name;
     private Long productCol;
     private Date date;
@@ -23,11 +23,11 @@ public class ProductShortDto {
         this.date = product.getDate();
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

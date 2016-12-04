@@ -31,7 +31,7 @@ public class StockServiceImpl implements StockService {
     @Transactional
     @Override
     public Long create(Stock stock) {
-        TypeStock typeStock = typeStockDao.get(stock.getIdTypeStock());
+        TypeStock typeStock = typeStockDao.get(stock.getTypeStock().getId());
         stock.setTypeStock(typeStock);
         return stockDao.create(stock);
     }
@@ -45,7 +45,7 @@ public class StockServiceImpl implements StockService {
     @Transactional
     @Override
     public void update(Stock stock) {
-        TypeStock typeStock = typeStockDao.get(stock.getIdTypeStock());
+        TypeStock typeStock = typeStockDao.get(stock.getTypeStock().getId());
         stock.setTypeStock(typeStock);
         stockDao.update(stock);
     }

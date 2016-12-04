@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * Created by igor on 24.11.16.
  */
 @Repository
-public class ProductDaoImpl extends GenericDaoImpl<Product, String> implements ProductDao {
+public class ProductDaoImpl extends GenericDaoImpl<Product, Long> implements ProductDao {
 
     public ProductDaoImpl() {
         super(Product.class);

@@ -2,13 +2,10 @@ package service.impl;
 
 import dao.ProductDao;
 import model.Product;
-import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.ProductService;
-import service.UserService;
 
 import java.util.List;
 
@@ -20,20 +17,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductDao productDao;
-    @Autowired
-    private UserService userService;
 
     @Transactional
     @Override
-    public Product get(String id) {
+    public Product get(Long id) {
         return productDao.get(id);
     }
 
     @Transactional
     @Override
-    public String create(Product product) {
-        User user = userService.get(product.getIdUser());
-        product.setUser(user);
+    public Long create(Product product) {
         return productDao.create(product);
     }
 
@@ -46,8 +39,6 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     @Override
     public void update(Product product) {
-        User user = userService.get(product.getIdUser());
-        product.setUser(user);
         productDao.update(product);
     }
 

@@ -6,15 +6,15 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by igor on 20.11.16.
+ * Created by igor on 30.11.16.
  */
 @Entity
-@Table(name = "users")
-public class User extends AbstractPersistable<Long> {
+@Table(name = "clients")
+public class Client extends AbstractPersistable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_user")
+    @Column(name = "id_client")
     private Long id;
     @Column(name = "name")
     private String name;
@@ -28,15 +28,11 @@ public class User extends AbstractPersistable<Long> {
     private String firstName;
     @Column(name = "lastName")
     private String lastName;
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_role")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Role role;
-    @Column(name = "id_role", updatable = false, insertable = false)
-    private String roleId;
-    //@OneToMany(mappedBy = "")
-    @OneToMany(mappedBy = "user")/*, fetch = FetchType.EAGER, cascade = CascadeType.ALL)*/
-    private List<Product> products;
+    @Column(name = "id_role", insertable = false, updatable = false)
+    private String idRole;
 
     @Override
     public Long getId() {
@@ -104,19 +100,11 @@ public class User extends AbstractPersistable<Long> {
         this.role = role;
     }
 
-    public String getRoleId() {
-        return roleId;
+    public String getIdRole() {
+        return idRole;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setIdRole(String idRole) {
+        this.idRole = idRole;
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.jws.soap.SOAPBinding;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by igor on 24.11.16.
@@ -13,32 +14,34 @@ import java.util.Date;
 @Entity
 @Table(name = "products")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Product extends AbstractPersistable<String> {
+public class Product extends AbstractPersistable<Long> {
 
     @Id
     @Column(name = "id_product")
-    private String id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "productcol")
     private Long productCol;
     @Column(name = "date")
-    //@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date date;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_user")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private User user;
-    @Column(name = "id_user", updatable = false, insertable = false)
-    private Long idUser;
+    @JoinColumn(name = "id_client")
+    private Client client;
+    @Column(name = "id_client", insertable = false, updatable = false)
+    private Long idClient;
+    @ManyToMany(mappedBy = "products")
+/*    @JoinTable(name = "link_stocks_products", joinColumns = @JoinColumn(name = "id_stock"),
+            inverseJoinColumns = @JoinColumn(name = "id_product"))*/
+    private List<Stock> stocks;
 
     @Override
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -66,19 +69,27 @@ public class Product extends AbstractPersistable<String> {
         this.date = date;
     }
 
-    public Long getIdUser() {
-        return idUser;
+    public Client getClient() {
+        return client;
     }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public User getUser() {
-        return user;
+    public Long getIdClient() {
+        return idClient;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setIdClient(Long idClient) {
+        this.idClient = idClient;
+    }
+
+    public List<Stock> getStocks() {
+        return stocks;
+    }
+
+    public void setStocks(List<Stock> stocks) {
+        this.stocks = stocks;
     }
 }

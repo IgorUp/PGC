@@ -32,8 +32,6 @@ public class TypeStockServiceImpl implements TypeStockService {
     @Transactional
     @Override
     public String create(TypeStock typeStock) {
-        Product product = productDao.get(typeStock.getIdProduct());
-        typeStock.setProduct(product);
         return typeStockDao.create(typeStock);
     }
 
@@ -46,8 +44,6 @@ public class TypeStockServiceImpl implements TypeStockService {
     @Transactional
     @Override
     public void update(TypeStock typeStock) {
-        Product product = productDao.get(typeStock.getIdProduct());
-        typeStock.setProduct(product);
         typeStockDao.update(typeStock);
     }
 

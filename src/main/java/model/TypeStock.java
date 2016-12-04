@@ -17,11 +17,6 @@ public class TypeStock extends AbstractPersistable<String> {
     private String id;
     @Column(name = "name")
     private String name;
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "id_product")
-    private Product product;
-    @Column(name = "id_product", updatable = false, insertable = false)
-    private String idProduct;
 
     @Override
     public String getId() {
@@ -39,21 +34,5 @@ public class TypeStock extends AbstractPersistable<String> {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public String getIdProduct() {
-        return idProduct;
-    }
-
-    public void setIdProduct(String idProduct) {
-        this.idProduct = idProduct;
     }
 }

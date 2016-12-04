@@ -3,6 +3,7 @@ package controller;
 import controller.dto.Response;
 
 import controller.dto.StockDto;
+import controller.dto.StockShortDto;
 import model.Stock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -66,6 +67,21 @@ public class StockController {
             List<StockDto> list = new ArrayList<StockDto>(stocks.size());
             for (Stock stock : stocks) {
                 list.add(new StockDto(stock));
+            }
+
+            return ResponseEntity.ok(Response.success(list));
+        }
+        return new ResponseEntity(Response.error("Nothing found"), HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(value = "/api/stocksinfo", method = RequestMethod.GET)
+    @ResponseBody
+    private ResponseEntity<Response<List<StockShortDto>>> stockList() {
+        List<Stock> stocks = stockService.list();
+        if (stocks != null) {
+            List<StockShortDto> list = new ArrayList<StockShortDto>(stocks.size());
+            for (Stock stock : stocks) {
+                list.add(new StockShortDto(stock));
             }
 
             return ResponseEntity.ok(Response.success(list));

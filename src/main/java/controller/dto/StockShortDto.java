@@ -1,54 +1,49 @@
-package model;
+package controller.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import model.Stock;
 
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- * Created by igor on 27.11.16.
+ * Created by igor on 4.12.16.
  */
-@Entity
-@Table(name = "stocks")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Stock extends AbstractPersistable<Long> {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_stock")
+public class StockShortDto {
     private Long id;
-    @Column(name = "name")
     private String name;
-    @Column(name = "address")
     private String address;
-    @Column(name = "number_of_seats")//колличество мест
     private Long numberOfSeats;
-    @Column(name = "number_of_remaining_places") // осталось мест
     private Long numberOfRemainingPlaces;
-    @Column(name = "number_of_sectors")
     private Long numberOfSectors;
-    @Column(name = "height")
     private String height;
-    @Column(name = "width")
     private String width;
-    @Column(name = "capacity")
     private String capacity;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_type_stock")
-    private TypeStock typeStock;
-    @Column(name = "id_type_stock", insertable = false, updatable = false)
-    private String idTypeStock;
-    @ManyToMany
-    @JoinTable(name = "link_stocks_products", joinColumns = @JoinColumn(name = "id_stock"),
-            inverseJoinColumns = @JoinColumn(name = "id_product"))
-    private List<Product> products;
+    private TypeStockDto typeStock;
+    private List<ProductShortDto> productShortDtos;
 
-    @Override
+    public StockShortDto() {
+    }
+
+    public StockShortDto(Stock stock) {
+        this.id = stock.getId();
+        this.name = stock.getName();
+        this.address = stock.getAddress();
+        this.numberOfSeats = stock.getNumberOfSeats();
+        this.numberOfRemainingPlaces = stock.getNumberOfRemainingPlaces();
+        this.numberOfSectors = stock.getNumberOfSectors();
+        this.height = stock.getHeight();
+        this.width = stock.getWidth();
+        this.capacity = stock.getCapacity();
+        this.typeStock = new TypeStockDto(stock.getTypeStock());
+        this.productShortDtos = new ArrayList<>(stock.getProducts().size());
+        this.productShortDtos.addAll(stock.getProducts().stream().map(ProductShortDto::new).collect(Collectors.toList()));
+    }
+
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }
@@ -117,27 +112,19 @@ public class Stock extends AbstractPersistable<Long> {
         this.capacity = capacity;
     }
 
-    public TypeStock getTypeStock() {
+    public TypeStockDto getTypeStock() {
         return typeStock;
     }
 
-    public void setTypeStock(TypeStock typeStock) {
+    public void setTypeStock(TypeStockDto typeStock) {
         this.typeStock = typeStock;
     }
 
-    public String getIdTypeStock() {
-        return idTypeStock;
+    public List<ProductShortDto> getProductShortDtos() {
+        return productShortDtos;
     }
 
-    public void setIdTypeStock(String idTypeStock) {
-        this.idTypeStock = idTypeStock;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProductShortDtos(List<ProductShortDto> productShortDtos) {
+        this.productShortDtos = productShortDtos;
     }
 }

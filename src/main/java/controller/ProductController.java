@@ -24,7 +24,7 @@ public class ProductController {
 
     @RequestMapping(value = "/api/products/{id}", method = RequestMethod.GET)
     @ResponseBody
-    private ResponseEntity<Response<ProductDto>> productGet(@PathVariable String id) {
+    private ResponseEntity<Response<ProductDto>> productGet(@PathVariable Long id) {
 /*        Product product = productService.get(id);
         return ResponseEntity.ok(Response.success(product));*/
         Product product = productService.get(id);
@@ -44,7 +44,7 @@ public class ProductController {
 
     @RequestMapping(value = "/api/products/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    private ResponseEntity productPut(@PathVariable String id, @RequestBody Product product) {
+    private ResponseEntity productPut(@PathVariable Long id, @RequestBody Product product) {
         product.setId(id);
         productService.update(product);
         return ResponseEntity.ok(Response.success());
@@ -59,7 +59,7 @@ public class ProductController {
 
     @RequestMapping(value = "/api/products", method = RequestMethod.GET)
     @ResponseBody
-    private ResponseEntity<Response<List<ProductDto>>> productList() {
+    private ResponseEntity<Response<List<ProductDto>>> productDtoList() {
 /*        List<Product> list = productService.list();
         return ResponseEntity.ok(Response.success(list));*/
         List<Product> products = productService.list();
