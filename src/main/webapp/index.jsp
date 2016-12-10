@@ -78,6 +78,8 @@
 <script src="<c:url value='/js/controller/client_controller.js' />"></script>
 <script src="<c:url value='/js/controller/role_controller.js' />"></script>
 <script src="<c:url value='/js/controller/product_controller.js' />"></script>
+<script src="<c:url value='/js/controller/typeStock_controller.js' />"></script>
+<script src="<c:url value='/js/controller/stock_controller.js' />"></script>
 <%--<script src="<c:url value='/js/route.js' />"></script>--%>
 
 <!-- Services -->
@@ -85,6 +87,8 @@
 <script src="<c:url value='/js/service/client_service.js' />"></script>
 <script src="<c:url value='/js/service/role_service.js' />"></script>
 <script src="<c:url value='/js/service/product_service.js' />"></script>
+<script src="<c:url value='/js/service/typeStock_service.js' />"></script>
+<script src="<c:url value='/js/service/stock_service.js' />"></script>
 
 </body>
 </html>

@@ -10,7 +10,7 @@ import java.util.List;
 public interface StockService {
     Stock get(Long id);
     Long create(Stock stock);
-    void delete(Stock stock);
+    void delete(Long id);
     void update(Stock stock);
     List<Stock> list();
 }

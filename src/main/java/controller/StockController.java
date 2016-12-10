@@ -50,10 +50,10 @@ public class StockController {
         return ResponseEntity.ok(Response.success());
     }
 
-    @RequestMapping(value = "/api/stocks", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/stocks/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    private ResponseEntity stocksDel(@RequestBody Stock stock) {
-        stockService.delete(stock);
+    private ResponseEntity stocksDel(@PathVariable Long id) {
+        stockService.delete(id);
         return ResponseEntity.ok(Response.success());
     }
 

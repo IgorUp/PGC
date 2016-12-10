@@ -38,8 +38,8 @@ public class StockServiceImpl implements StockService {
 
     @Transactional
     @Override
-    public void delete(Stock stock) {
-        stockDao.delete(stock);
+    public void delete(Long id) {
+        stockDao.delete(id);
     }
 
     @Transactional

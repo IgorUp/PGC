@@ -33,7 +33,7 @@ public class Stock extends AbstractPersistable<Long> {
     private String width;
     @Column(name = "capacity")
     private String capacity;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_type_stock")
     private TypeStock typeStock;
     @Column(name = "id_type_stock", insertable = false, updatable = false)

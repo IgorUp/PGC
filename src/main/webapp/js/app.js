@@ -24,6 +24,16 @@
             templateUrl: 'view/product_tab.html',
             controller: 'ProductController as ctrl'
         })
+
+        .when('/typestocks', {
+            templateUrl: 'view/typeStock_tab.html',
+            controller: 'TypeStockController as ctrl'
+        })
+
+        .when('/stocks', {
+            templateUrl: 'view/stock_tab.html',
+            controller: 'StockController as ctrl'
+        })
     }]);
 }());
 
