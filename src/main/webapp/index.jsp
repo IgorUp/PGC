@@ -67,20 +67,24 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
 <script type="text/javascript" src="https://code.angularjs.org/1.4.7/angular-route.min.js"></script>
-<script src="<c:url value='/js/app.js' />"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
+<!-- Angular Material Library -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="<c:url value='/js/app.js' />"></script>
 
 <!-- Controllers -->
 <script src="<c:url value='/js/controller/pgc.controllers.js' />"></script>
 <script src="<c:url value='/js/controller/client_controller.js' />"></script>
 <script src="<c:url value='/js/controller/role_controller.js' />"></script>
+<script src="<c:url value='/js/controller/product_controller.js' />"></script>
+<%--<script src="<c:url value='/js/route.js' />"></script>--%>
 
 <!-- Services -->
 <script src="<c:url value='/js/service/pgc.services.js' />"></script>
 <script src="<c:url value='/js/service/client_service.js' />"></script>
 <script src="<c:url value='/js/service/role_service.js' />"></script>
-
-<%--<script src="<c:url value='/js/route.js' />"></script>--%>
+<script src="<c:url value='/js/service/product_service.js' />"></script>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 package controller.dto;
 
+import model.Client;
 import model.Product;
 
 import java.util.Date;
@@ -12,6 +13,7 @@ public class ProductShortDto {
     private String name;
     private Long productCol;
     private Date date;
+    private Client client;
 
     public ProductShortDto() {
     }
@@ -21,6 +23,7 @@ public class ProductShortDto {
         this.name = product.getName();
         this.productCol = product.getProductCol();
         this.date = product.getDate();
+        this.client = product.getClient();
     }
 
     public Long getId() {
@@ -53,5 +56,13 @@ public class ProductShortDto {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

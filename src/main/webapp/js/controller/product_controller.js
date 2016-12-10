@@ -40,7 +40,7 @@
             fetchAllClients();
 
             function fetchAllClients(){
-                ClientService.fetchAllClients().then(
+                ClientService.fetchAllUsers().then(
                     function(d) {
                         self.clients = d.data;
                         if (d.data.length > 0)

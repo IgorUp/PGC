@@ -1,6 +1,7 @@
 package controller;
 
 import controller.dto.ProductDto;
+import controller.dto.ProductShortDto;
 import controller.dto.Response;
 import model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,7 @@ public class ProductController {
         return ResponseEntity.ok(Response.success());
     }
 
-    @RequestMapping(value = "/api/products", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/productsinfo", method = RequestMethod.GET)
     @ResponseBody
     private ResponseEntity<Response<List<ProductDto>>> productDtoList() {
 /*        List<Product> list = productService.list();
@@ -68,6 +69,24 @@ public class ProductController {
             List<ProductDto> list = new ArrayList<ProductDto>(products.size());
             for (Product product : products) {
                 list.add(new ProductDto(product));
+            }
+
+            return ResponseEntity.ok(Response.success(list));
+        }
+        return new ResponseEntity(Response.error("Nothing found"), HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(value = "/api/products", method = RequestMethod.GET)
+    @ResponseBody
+    private ResponseEntity<Response<List<ProductShortDto>>> productShortDtoList() {
+/*        List<Product> list = productService.list();
+        return ResponseEntity.ok(Response.success(list));*/
+        List<Product> products = productService.list();
+
+        if (products != null) {
+            List<ProductShortDto> list = new ArrayList<ProductShortDto>(products.size());
+            for (Product product : products) {
+                list.add(new ProductShortDto(product));
             }
 
             return ResponseEntity.ok(Response.success(list));
