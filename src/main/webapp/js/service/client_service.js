@@ -4,22 +4,22 @@
     'use strict';
 
     angular.module('pgc.services')
-        .factory('RoleService', ['$http', '$q', function($http, $q){
+        .factory('ClientService', ['$http', '$q', function ($http, $q) {
 
         var REST_SERVICE_URI = 'http://localhost:8080/bsuir-ief/api/';
 
         var factory = {
-            fetchAllRoles: fetchAllRoles,
-            createRole: createRole,
-            updateRole:updateRole,
-            deleteRole:deleteRole
+            fetchAllUsers: fetchAllUsers,
+            createUser: createUser,
+            updateUser: updateUser,
+            deleteUser: deleteUser
         };
 
         return factory;
 
-        function fetchAllRoles() {
+        function fetchAllUsers() {
             var deferred = $q.defer();
-            $http.get(REST_SERVICE_URI+"roles")
+            $http.get(REST_SERVICE_URI + "clients")
                 .then(
                     function (response) {
                         deferred.resolve(response.data);
@@ -32,9 +32,9 @@
             return deferred.promise;
         }
 
-        function createRole( id, role) {
+        function createUser(id, client) {
             var deferred = $q.defer();
-            $http.post(REST_SERVICE_URI + "roles/" + id, role)
+            $http.post(REST_SERVICE_URI + "clients/" + id, client)
                 .then(
                     function (response) {
                         deferred.resolve(response.data);
@@ -48,9 +48,9 @@
         }
 
 
-        function updateRole(id, role) {
+        function updateUser(id, client) {
             var deferred = $q.defer();
-            $http.put(REST_SERVICE_URI + "roles/" + id, role)
+            $http.put(REST_SERVICE_URI + "clients/" + id, client)
                 .then(
                     function (response) {
                         deferred.resolve(response.data);
@@ -63,9 +63,9 @@
             return deferred.promise;
         }
 
-        function deleteRole(role) {
+        function deleteUser(client) {
             var deferred = $q.defer();
-            $http.delete(REST_SERVICE_URI + "roles", role)
+            $http.delete(REST_SERVICE_URI + "clients", client)
                 .then(
                     function (response) {
                         deferred.resolve(response.data);

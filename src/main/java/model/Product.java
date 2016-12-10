@@ -17,6 +17,7 @@ import java.util.List;
 public class Product extends AbstractPersistable<Long> {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_product")
     private Long id;
     @Column(name = "name")
@@ -30,8 +31,8 @@ public class Product extends AbstractPersistable<Long> {
     private Client client;
     @Column(name = "id_client", insertable = false, updatable = false)
     private Long idClient;
-    @ManyToMany(mappedBy = "products")
-/*    @JoinTable(name = "link_stocks_products", joinColumns = @JoinColumn(name = "id_stock"),
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "products")
+    /*@JoinTable(name = "link_stocks_products", joinColumns = @JoinColumn(name = "id_stock"),
             inverseJoinColumns = @JoinColumn(name = "id_product"))*/
     private List<Stock> stocks;
 
