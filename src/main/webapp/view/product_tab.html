@@ -36,19 +36,20 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <!--<div class="row">
                     <div class="form-group col-md-12">
                         <label class="col-md-2 control-lable" for="file">Date</label>
                         <div class="col-md-7">
                             <input type="text" ng-model="ctrl.product.date" name="date" class="form-control input-sm" placeholder="Enter your Email"/>
-                            <div ng-controller="AppCtrl" ng-cloak>
+&lt;!&ndash;                            <div ng-controller="AppCtrl" ng-cloak>
                                 <md-content layout-padding>
                             <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
-                                </md-content>
+                                </md-content>&ndash;&gt;
+                            <input id="datepicker" class="datepicker" type="date">
                             </div>
                             </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="row">
                     <div class="form-group col-md-12">
@@ -90,7 +91,7 @@
                     <td><span>{{ u.id }}</span></td>
                     <td><span>{{ u.name }}</span></td>
                     <td><span>{{ u.productCol }}</span></td>
-                    <td><span>{{ u.date }}</span></td>
+                    <td><span>{{ u.date | date:'dd.MM.yyyy' }}</span></td>
                     <!--<td><select ng-model="u.role" ng-options="">-->
                     <!--<option>-</option>-->
                     <!--</select></td>-->
@@ -104,3 +105,14 @@
         </div>
     </div>
 </div>
+<script>
+    $('.datepicker').pickadate({
+        monthsFull: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь' ],
+        monthsShort: [ 'Янв', 'Февр', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек' ],
+        weekdaysFull: [ 'Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота' ],
+        weekdaysShort: [ 'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб' ],
+
+        format: 'dd mmmm, yyyy',
+        firstDay: 1
+    })
+</script>

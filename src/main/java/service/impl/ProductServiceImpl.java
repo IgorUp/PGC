@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.ProductService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     @Override
     public Long create(Product product) {
+        product.setDate(new Date());
         return productDao.create(product);
     }
 
@@ -39,6 +41,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     @Override
     public void update(Product product) {
+        product.setDate(new Date());
         productDao.update(product);
     }
 
