@@ -1,12 +1,13 @@
 
 <div class="generic-container">
     <div class="panel panel-default">
-        <div class="panel-heading"><span class="lead">User Registration Form </span></div>
+        <div class="panel-heading"><span class="lead">Форма для заполнения </span></div>
         <div class="formcontainer">
             <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                <table class="table table-hover">
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">ID</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">ID</label></tr>
                         <div class="col-md-7">
                             <input type="text" ng-model="ctrl.client.id" name="id" class="username form-control input-sm" placeholder="Enter your ID"/>
                             <div class="has-error" ng-show="myForm.$dirty">
@@ -20,18 +21,18 @@
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">Name</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">Имя</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.client.name" class="form-control input-sm" placeholder="Enter your Name"/>
+                            <input type="text" ng-model="ctrl.client.name" class="form-control input-sm" placeholder="Введите Имя"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">Email</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Email</label></tr>
                         <div class="col-md-7">
-                            <input type="email" ng-model="ctrl.client.email" name="email" class="form-control input-sm" placeholder="Enter your Email" required/>
+                            <input type="email" ng-model="ctrl.client.email" name="email" class="form-control input-sm" placeholder="Введите Email" required/>
                             <div class="has-error" ng-show="myForm.$dirty">
                                 <span ng-show="myForm.email.$error.required">This is a required field</span>
                                 <span ng-show="myForm.email.$invalid">This field is invalid </span>
@@ -42,43 +43,43 @@
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">Compani</label>
+                        <tr>  <label class="col-md-2 control-lable" for="file">Фирма(Компания)</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.client.compani" name="compani" class="form-control input-sm" placeholder="Enter your Email" required/>
+                            <input type="text" ng-model="ctrl.client.compani" name="compani" class="form-control input-sm" placeholder="Введите фирму"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">password</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">Пароль</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.client.password" name="password" class="form-control input-sm" placeholder="Enter your Email" required/>
+                            <input type="text" ng-model="ctrl.client.password" name="password" class="form-control input-sm" placeholder="******"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">firstName</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">Фамилия</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.client.firstName" name="firstName" class="form-control input-sm" placeholder="Enter your Email" required/>
+                            <input type="text" ng-model="ctrl.client.firstName" name="firstName" class="form-control input-sm" placeholder="Введите фамилию"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">lastName</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">Отчество</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.client.lastName" name="lastName" class="form-control input-sm" placeholder="Enter your Email" required/>
+                            <input type="text" ng-model="ctrl.client.lastName" name="lastName" class="form-control input-sm" placeholder="Введите Отчество"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">role</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">Роль пользователя</label></tr>
                         <div class="col-md-7">
                             <select ng-model="ctrl.client.role" ng-options="x.name for x in ctrl.roles">
                             </select>
@@ -89,29 +90,30 @@
 
                 <div class="row">
                     <div class="form-actions floatRight">
-                        <input type="submit"  value="Add" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
-                        <button type="button" ng-click="ctrl.updateSub()" value="Update" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">Update</button>
-                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+                        <tr> <br> <input type="submit"  value="Добавить" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                        <button type="button" ng-click="ctrl.updateSub()" value="Update" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">Редактировать</button>
+                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Обновление формы</button></tr>
                     </div>
                 </div>
+                    </table>
             </form>
         </div>
     </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">List of Roles </span></div>
+        <div class="panel-heading"><span class="lead">Таблица пользователей </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>ID.</th>
-                    <th>Name</th>
-                    <th>email</th>
-                    <th>compani</th>
-                    <th>password</th>
-                    <th>firstName</th>
-                    <th>lastName</th>
-                    <th>role</th>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Фирма(Компания)</th>
+                    <th>Пароль</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Роль пользователя</th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -129,7 +131,7 @@
                     <!--</select></td>-->
                     <td><span>{{ u.role.name }}</span></td>
                     <td>
-                        <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Remove</button>
+                        <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Выбор поле на редактирование</button>  <button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Удалить</button>
                     </td>
                 </tr>
                 </tbody>

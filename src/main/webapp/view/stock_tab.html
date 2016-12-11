@@ -1,12 +1,13 @@
 
 <div class="generic-container">
     <div class="panel panel-default">
-        <div class="panel-heading"><span class="lead">User Registration Form </span></div>
+        <div class="panel-heading"><span class="lead">Форма для заполнения </span></div>
         <div class="formcontainer">
             <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                <table class="table table-hover">
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">ID</label>
+                       <tr><label class="col-md-2 control-lable" for="file">ID</label></tr>
                         <div class="col-md-7">
                             <input type="text" ng-model="ctrl.stock.id" name="id" class="username form-control input-sm" placeholder="Enter your ID"/>
                             <div class="has-error" ng-show="myForm.$dirty">
@@ -20,79 +21,79 @@
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">Name</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Имя</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.stock.name" class="form-control input-sm" placeholder="Enter your Name"/>
+                            <input type="text" ng-model="ctrl.stock.name" class="form-control input-sm" placeholder="Введите имя"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">Addres</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Адрес</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.stock.address" name="address" class="form-control input-sm" placeholder="Enter your Email"/>
+                            <input type="text" ng-model="ctrl.stock.address" name="address" class="form-control input-sm" placeholder="Введите адрес"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">numberOfSeats</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Количество мест на складе</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.stock.numberOfSeats" name="compani" class="form-control input-sm" placeholder="Enter your Email"/>
+                            <input type="text" ng-model="ctrl.stock.numberOfSeats" name="compani" class="form-control input-sm" placeholder="Количество мест на складе"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">numberOfRemainingPlaces</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Количество оставшихся мест</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.stock.numberOfRemainingPlaces" name="password" class="form-control input-sm" placeholder="Enter your Email"/>
+                            <input type="text" ng-model="ctrl.stock.numberOfRemainingPlaces" name="password" class="form-control input-sm" placeholder="Введите данные"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">numberOfSectors</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Номер сектора на складе</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.stock.numberOfSectors" name="firstName" class="form-control input-sm" placeholder="Enter your Email"/>
+                            <input type="text" ng-model="ctrl.stock.numberOfSectors" name="firstName" class="form-control input-sm" placeholder="Сектора"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">height</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Высота</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.stock.height" name="lastName" class="form-control input-sm" placeholder="Enter your Email"/>
+                            <input type="text" ng-model="ctrl.stock.height" name="lastName" class="form-control input-sm" placeholder="Высота склада"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">width</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">Ширина</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.stock.width" name="lastName" class="form-control input-sm" placeholder="Enter your Email"/>
+                            <input type="text" ng-model="ctrl.stock.width" name="lastName" class="form-control input-sm" placeholder="Ширина склада"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">width</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Объем склада</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.stock.capacity" name="lastName" class="form-control input-sm" placeholder="Enter your Email"/>
+                            <input type="text" ng-model="ctrl.stock.capacity" name="lastName" class="form-control input-sm" placeholder="Объем"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">typeStock</label>
+                        <tr><label class="col-md-2 control-lable" for="file">Тип склада</label></tr>
                         <div class="col-md-7">
                             <select ng-model="ctrl.stock.typeStock" ng-options="x.name for x in ctrl.typeStocks">
                             </select>
@@ -103,31 +104,32 @@
 
                 <div class="row">
                     <div class="form-actions floatRight">
-                        <input type="submit"  value="Add" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
-                        <button type="button" ng-click="ctrl.updateSub()" value="Update" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">Update</button>
-                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+                        <tr><br><input type="submit"  value="Добавить" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                        <button type="button" ng-click="ctrl.updateSub()" value="Update" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">Редактировать</button>
+                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Обновить форму</button></tr>
                     </div>
                 </div>
+                    </table>
             </form>
         </div>
     </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">List of Roles </span></div>
+        <div class="panel-heading"><span class="lead">Таблица характиристики склад </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>ID.</th>
-                    <th>Name</th>
-                    <th>address</th>
-                    <th>numberOfSeats</th>
-                    <th>numberOfRemainingPlaces</th>
-                    <th>numberOfSectors</th>
-                    <th>height</th>
-                    <th>width</th>
-                    <th>capacity</th>
-                    <th>typeStock</th>
+                    <th>Название склада</th>
+                    <th>Адрес</th>
+                    <th>Количество мест</th>
+                    <th>Количество свободных мест</th>
+                    <th>Сектора</th>
+                    <th>Высота</th>
+                    <th>Ширина</th>
+                    <th>Объем</th>
+                    <th>Тип склада</th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -144,7 +146,7 @@
                     <td><span>{{ u.capacity }}</span></td>
                     <td><span>{{ u.typeStock.name }}</span></td>
                     <td>
-                        <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
+                        <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Выбор поле на редактирование</button>  <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Удалить</button>
                     </td>
                 </tr>
                 </tbody>

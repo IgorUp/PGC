@@ -1,12 +1,13 @@
 
 <div class="generic-container">
     <div class="panel panel-default">
-        <div class="panel-heading"><span class="lead">User Registration Form </span></div>
+        <div class="panel-heading"><span class="lead">Форма для заполнения </span></div>
         <div class="formcontainer">
             <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                <table class="table table-hover">
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">ID</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">ID</label></tr>
                         <div class="col-md-7">
                             <input type="text" ng-model="ctrl.product.id" name="id" class="username form-control input-sm" placeholder="Enter your ID"/>
                             <div class="has-error" ng-show="myForm.$dirty">
@@ -20,18 +21,18 @@
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">Name</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">Имя</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.product.name" class="form-control input-sm" placeholder="Enter your Name"/>
+                            <input type="text" ng-model="ctrl.product.name" class="form-control input-sm" placeholder="Введите имя"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">Email</label>
+                        <tr> <label class="col-md-2 control-lable" for="file">Количество продукции</label></tr>
                         <div class="col-md-7">
-                            <input type="text" ng-model="ctrl.product.productCol" name="Count" class="form-control input-sm" placeholder="Enter your Email"/>
+                            <input type="text" ng-model="ctrl.product.productCol" name="Count" class="form-control input-sm" placeholder="Введите количество"/>
                         </div>
                     </div>
                 </div>
@@ -53,7 +54,7 @@
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-2 control-lable" for="file">Client</label>
+                        <tr>  <label class="col-md-2 control-lable" for="file">Владелиц продукции</label></tr>
                         <div class="col-md-7">
                             <select ng-model="ctrl.product.client" ng-options="x.name for x in ctrl.clients">
                             </select>
@@ -63,26 +64,27 @@
 
                 <div class="row">
                     <div class="form-actions floatRight">
-                        <input type="submit"  value="Add" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
-                        <button type="button" ng-click="ctrl.updateSub()" value="Update" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">Update</button>
-                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+                        <tr><br><input type="submit"  value="Добавить" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                        <button type="button" ng-click="ctrl.updateSub()" value="Update" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">Редактировать</button>
+                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Обновить таблицу</button></tr>
                     </div>
                 </div>
+                    </table>
             </form>
         </div>
     </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">List of Roles </span></div>
+        <div class="panel-heading"><span class="lead">Таблица продукции </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>ID.</th>
-                    <th>Name</th>
-                    <th>productCol</th>
-                    <th>date</th>
-                    <th>client</th>
+                    <th>Имя</th>
+                    <th>Количество продукции</th>
+                    <th>Дата поступления</th>
+                    <th>Владелиц продукции</th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -97,7 +99,7 @@
                     <!--</select></td>-->
                     <td><span>{{ u.client.name }}</span></td>
                     <td>
-                        <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Remove</button>
+                        <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Выбор поле на редактирование</button>  <button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Удалить</button>
                     </td>
                 </tr>
                 </tbody>
