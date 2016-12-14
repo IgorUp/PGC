@@ -51,17 +51,13 @@
 <!-- Footer -->
 
 <footer class="w3-container w3-padding-32 w3-light-grey w3-center">
-    <h4>Footer</h4>
-    <a href="#" class="w3-btn w3-padding w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
     <div class="w3-xlarge w3-section">
         <i class="fa fa-facebook-official w3-hover-text-indigo"></i>
         <i class="fa fa-instagram w3-hover-text-purple"></i>
-        <i class="fa fa-snapchat w3-hover-text-yellow"></i>
-        <i class="fa fa-pinterest-p w3-hover-text-red"></i>
         <i class="fa fa-twitter w3-hover-text-light-blue"></i>
         <i class="fa fa-linkedin w3-hover-text-indigo"></i>
     </div>
-    <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    <p>Powered by IgorUp</p>
 </footer>
 
 
@@ -80,6 +76,7 @@
 <script src="<c:url value='/js/controller/product_controller.js' />"></script>
 <script src="<c:url value='/js/controller/typeStock_controller.js' />"></script>
 <script src="<c:url value='/js/controller/stock_controller.js' />"></script>
+<script src="<c:url value='/js/controller/communication_controller.js' />"></script>
 <%--<script src="<c:url value='/js/route.js' />"></script>--%>
 
 <!-- Services -->
@@ -89,6 +86,35 @@
 <script src="<c:url value='/js/service/product_service.js' />"></script>
 <script src="<c:url value='/js/service/typeStock_service.js' />"></script>
 <script src="<c:url value='/js/service/stock_service.js' />"></script>
+<script src="<c:url value='/js/service/communication_service.js' />"></script>
+<script>
+    // Slideshow
+    var slideIndex = 1;
+    showDivs(slideIndex);
 
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demodots");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length} ;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" w3-white", "");
+        }
+        x[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " w3-white";
+    }
+</script>
 </body>
 </html>

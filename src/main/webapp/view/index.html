@@ -1,0 +1,95 @@
+
+<!-- Content -->
+<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+
+  <div class="w3-panel">
+    <h1><b>Логистический центр PGC</b></h1>
+    <p>Быстро, качественно, надежно</p>
+  </div>
+
+  <!-- Slideshow -->
+  <div class="w3-container">
+    <div class="w3-display-container mySlides">
+      <img src="jpg/2996537-www.jpg" style="width:100%">
+      <div class="w3-display-topleft w3-container w3-padding-32">
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="jpg/news_30062016_1.jpg" style="width:100%">
+      <div class="w3-display-middle w3-container w3-padding-32">
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="jpg/thumb2-2013-volvo-v60-diesel-plug-in-hybrid-fyra-sklad.jpg" style="width:100%">
+      <div class="w3-display-topright w3-container w3-padding-32">
+      </div>
+    </div>
+
+    <!-- Slideshow next/previous buttons -->
+    <div class="w3-container w3-dark-grey w3-padding-8 w3-xlarge">
+      <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
+      <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i></div>
+    
+      <div class="w3-center">
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Grid -->
+  <div class="w3-row w3-container">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Кратко о нас</span>
+    </div>
+    <div class="w3-col l3 m6 w3-light-grey w3-container w3-padding-12">
+      <h3>Склады</h3>
+      <p>Организация владеет большим количеством складов разного типа.</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-grey w3-container w3-padding-12">
+      <h3>Персонал</h3>
+      <p>Высококвалифицированный персонал работающий как за техникой , так и с документацией.</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-dark-grey w3-container w3-padding-12">
+      <h3>Транспорт</h3>
+      <p>Компания имеет огромную транспортную базу , которая позволяет выполнить поставленные задачи в срок.</p>
+    </div>
+
+    <div class="w3-col l3 m6 w3-black w3-container w3-padding-12">
+      <h3>Взаимодействие с клиентом</h3>
+      <p>Взаимодействие с клиентом осуществляет в любое для него удобное время.</p>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="w3-center w3-padding-64" id="contact">
+    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Обратная связь</span>
+  </div>
+
+  <form ng-submit="ctrl.submit()" class="w3-container" target="_blank">
+    <div class="w3-group">
+      <label>Имя</label>
+      <input ng-model="ctrl.comm.name" class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Name" required>
+    </div>
+    <div class="w3-group">
+      <label>Email</label>
+      <input ng-model="ctrl.comm.email" class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Email" required>
+    </div>
+    <div class="w3-group">
+      <label>Тема</label>
+      <input ng-model="ctrl.comm.subject" class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Subject" required>
+    </div>
+    <div class="w3-group">
+      <label>Сообщение</label>
+      <input ng-model="ctrl.comm.message" class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Message" required>
+    </div>
+    <input type="submit"  value="Отправить" class="btn btn-primary btn-sm">
+  </form>
+
+</div>
+
+
+

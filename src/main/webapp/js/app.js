@@ -34,6 +34,10 @@
             templateUrl: 'view/stock_tab.html',
             controller: 'StockController as ctrl'
         })
+        .when('/index', {
+            templateUrl: 'view/index.html',
+            controller: 'CommController as ctrl'
+        })
     }]);
 }());
 
