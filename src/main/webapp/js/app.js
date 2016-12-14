@@ -38,6 +38,9 @@
             templateUrl: 'view/index.html',
             controller: 'CommController as ctrl'
         })
+        .when('/grafic', {
+            templateUrl: 'view/grafic.html'
+        })
     }]);
 }());
 

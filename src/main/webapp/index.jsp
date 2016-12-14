@@ -5,7 +5,7 @@
   Time: 17.03
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,22 +19,71 @@
     .w3-tag, .fa {cursor:pointer}
     .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
 </style>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['B&B',     20],
+                ['PGC',     10],
+                ['M&Ms',  15],
+                ['T&S', 5]
+            ]);
+
+            var options = {
+                title: 'Круговая диаграмма'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.charts.load('upcoming', {'packages':['geochart']});
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Country', 'Popularity'],
+                ['Germany', 200],
+                ['United States', 100],
+                ['UK', 400],
+                ['Canada', 400],
+                ['BY', 700],
+                ['RU', 700]
+            ]);
+
+            var options = {};
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
 <body ng-app="myApp" class="ng-cloak">
 
 <!-- Links (sit on top) -->
 <div class="w3-top">
     <div class="w3-row w3-large">
         <div class="w3-col s3">
-            <a href="#" class="w3-btn-block w3-light-grey">Home</a>
+            <a href="#/index" class="w3-btn-block w3-light-grey">Главная</a>
         </div>
         <div class="w3-col s3">
-            <a href="#roles" class="w3-btn-block w3-light-grey">Plans</a>
+            <a href="#/grafic" class="w3-btn-block w3-light-grey">График</a>
         </div>
         <div class="w3-col s3">
-            <a href="#clients" class="w3-btn-block w3-light-grey">About</a>
+            <a href="#/index#about" class="w3-btn-block w3-light-grey">О нас</a>
         </div>
         <div class="w3-col s3">
-            <a href="#contact" class="w3-btn-block w3-light-grey">Contact</a>
+            <a href="#/index#contact" class="w3-btn-block w3-light-grey">Обратная связь</a>
         </div>
     </div>
 </div>
