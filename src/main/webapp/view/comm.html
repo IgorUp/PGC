@@ -1,0 +1,31 @@
+
+<div class="generic-container">
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Таблица ролей </span></div>
+        <div class="tablecontainer">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Тема</th>
+                    <th>Сообщение</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="u in ctrl.comms">
+                    <td><span>{{ u.id }}</span></td>
+                    <td><span>{{ u.name }}</span></td>
+                    <td><span>{{ u.email }}</span></td>
+                    <td><span>{{ u.subject }}</span></td>
+                    <td><span>{{ u.message }}</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -41,6 +41,10 @@
         .when('/grafic', {
             templateUrl: 'view/grafic.html'
         })
+        .when('/communication', {
+            templateUrl: 'view/comm.html',
+            controller: 'CommController as ctrl'
+        })
     }]);
 }());
 
